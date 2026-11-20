@@ -14,7 +14,7 @@
 // DEPLOYMENT CONFIGURATION: Set this to your deployed Supabase Edge Function URL.
 // Example: https://YOUR_PROJECT_REF.supabase.co/functions/v1/analyze-chart
 // Do NOT put your OpenAI secret key in this file.
-const ANALYZE_ENDPOINT = '';
+const ANALYZE_ENDPOINT = 'https://thdledkupgkuqhtqpske.supabase.co/functions/v1/analyze-chart';
 const $=id=>document.getElementById(id),file=$('file'),drop=$('drop'),preview=$('preview'),btn=$('analyze');let selected=null,objectUrl=null;
 function error(msg){$('error').textContent=msg;$('error').style.display=msg?'block':'none'}
 function choose(f){error('');if(!f)return;if(!['image/jpeg','image/png','image/webp'].includes(f.type))return error('Please upload a JPEG, PNG, or WebP image.');if(f.size>4*1024*1024)return error('Image must be 4 MB or smaller.');selected=f;if(objectUrl)URL.revokeObjectURL(objectUrl);objectUrl=URL.createObjectURL(f);preview.src=objectUrl;drop.classList.add('has-image');btn.disabled=false;$('result').classList.remove('show')}
